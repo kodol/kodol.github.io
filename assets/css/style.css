@@ -2576,7 +2576,6 @@ body.search-overlay:after {
     vertical-align: super;
 }
 figure {
-    margin: 0;
     *zoom: 1;
 }
 
