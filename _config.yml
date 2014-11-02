@@ -23,7 +23,7 @@ url:
 # Owner/author information
 owner:
   name:           toice
-  avatar:         
+  avatar:         toice.png
   email:          toice315@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
   description:    
@@ -52,8 +52,6 @@ links:
     url: /
     external: false
     icon: home
-  - title: <i class="icon-book"></i> Documentation
-    url: /documentation
   - title: Categories
     url: /categories
   - title: Tags
