@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	{% include head.html %}
+
+<body>
+
+	{% include header.html %}
+
+	<div class="page-content">
+	    <div class="wrapper">
+		{{ content }}
+	    </div>
+	</div>
+
+	{% include footer.html %}
+
+</body>
+<script>
+$(window).scroll(function(){
+	$(this).scrollTop() > 0 ? $('.site-header').addClass('moving') : $('.site-header').removeClass('moving');
+});
+</script>
+</html>
