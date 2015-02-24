@@ -3,22 +3,58 @@
 
 	{% include head.html %}
 
-<body>
-
-	{% include header.html %}
-
-	<div class="page-content">
-	    <div class="wrapper">
+<body id="{{ page.type }}">
+	<div class="contents">
 		{{ content }}
-	    </div>
 	</div>
 
-	{% include footer.html %}
+	<div class="aside">
+		<h1><a href="/">toice's blog</a></h1>
+		<div class="nav">
+			<ul>
+				<li class="current"><a href="{{ "/" | prepend: site.baseurl }}">Blog</a></li>
+				<li><a href="{{ "/bookmarks" | prepand: site.baseurl }}">Bookmarks</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="{{ "/feed.xml" | prepend: site.baseurl }}" onclick="return false">RSS Feed</a></li>
+			</ul>
+		</div>
+		<div class="copyright">@toice All right reserved.</div>
+	</div>
+	<script type="text/javascript">
+		var mobileCheck = $('.aside').css('left').split('px')[0] < 0;
 
+		function mobileAside(){
+			if(mobileCheck){
+				$('.aside a').click(function(){
+					if($('.aside').hasClass('active')){
+						$('.aside').removeClass('active');
+						return true;
+					} else {
+						$('.aside').addClass('active');
+						return false;	
+					}
+				});
+				$('.aside').click(function(){
+					$(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active');
+				});
+				$('.contents').click(function(){
+					$('.aside').hasClass('active') ? $('.aside').removeClass('active') : '';
+				});
+			}
+		}
+		mobileAside();
+
+		function navigation(){
+			var urlCheck = location.href.split('/')[3];
+
+			urlCheck == 'bookmarks' ? $('.nav').find('li').removeClass('current').eq(1).addClass('current') : $('.nav').find('li').removeClass('current').eq(0).addClass('current');
+
+			if(!mobileCheck){
+				$('.nav').mouseover(function(){	$(this).find('li.current').addClass('active').removeClass('current') });
+				$('.nav').mouseleave(function(){ $(this).find('li.active').addClass('current').removeClass('active') });
+			}
+		}
+		navigation();
+	</script>
 </body>
-<script>
-$(window).scroll(function(){
-	$(this).scrollTop() > 0 ? $('.site-header').addClass('moving') : $('.site-header').removeClass('moving');
-});
-</script>
 </html>

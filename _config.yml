@@ -12,8 +12,11 @@ highlighter: pygments
 # Plugins
 gems: 
 - jekyll-compass
+output_style: compressed
+line_comments: false
 
 # Outputting
 permalink: /:categories/:title
+paginate: 5
 paginate_path: /page:num
 timezone:      Asia/Seoul

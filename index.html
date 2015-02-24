@@ -1,20 +1,33 @@
 ---
 layout: default
+type: index
+norobots: yes
 ---
-
 <div class="index">
+	<h1 class="blind">Recent Posts</h1>
 
-	<h1 class="page-heading">Posts</h1>
-
-	<ul class="post-list">
-	{% for post in site.posts %}
-		<li>
-			<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-		</li>
-	{% endfor %}
-	</ul>
-
-	<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+	<div class="postList">
+		<ul>
+			{% for post in site.posts %}
+			{% if post.category != 'bookmarks' %}
+			<li>
+				<div class="box">
+					<a href="{{ post.url | prepend: site.baseurl }}">
+						{% if post.visual %}
+						<div class="thumb"><img src="{{ post.visual }}"></div>
+						{% endif %}
+						<div class="titleWrap">
+							<h2>{{ post.title }}</h2>
+							<span>{{ post.date | date: "%b %-d, %Y" }}</span>
+							<span> | </span>
+							<span>{{ post.categories }}</span>
+						</div>
+						<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' | remove: '<pre>' | remove: '</pre>' | remove: '<h2>' | remove: '</h2>' }}</p>
+					</a>
+				</div>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
 </div>
