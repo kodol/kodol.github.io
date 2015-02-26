@@ -1,14 +1,25 @@
 ---
 layout: default
+type: page
 ---
+<!-- code highlight -->
+<link rel="stylesheet" href="/assets/public/highlight/styles/monokai_sublime.css">
+<script src="/assets/public/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- /code highlight -->
+
 <div class="post">
+	{% if page.visual %}
+	<div class="visual"><img src="{{ page.visual }}"></div>
+	{% endif %}
+	<div class="titleWrap">
+		<h1>{{ page.title }}</h1>
+		<div class="postMeta">
+			{% if page.author %}{{ page.author }}{% endif %}
+		</div>
+	</div>
 
-	<header class="post-header">
-		<h1 class="post-title">{{ page.title }}</h1>
-	</header>
-
-	<article class="post-content">
+	<div class="article">
 		{{ content }}
-	</article>
-
+	</div>
 </div>
