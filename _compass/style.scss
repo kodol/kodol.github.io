@@ -13,6 +13,9 @@ $font-color-link: #666;
 $font-color-sub: #999;
 $point-color: #09c;
 
+$thin-font: HelveticaNeue-Thin, AppleSDGothicNeo-Light, sans-serif-light, sans-serif;
+$normal-font: HelveticaNeue, AppleSDGothicNeo, sans-serif;
+
 @mixin line-clamp($val) {
 	display: -webkit-box;
 	overflow: hidden;
@@ -25,7 +28,7 @@ $point-color: #09c;
 body {
 	color: $font-color-base;
 	font-size: px2em(14);
-	font-family: HelveticaNeue-Thin, AppleSDGothicNeo-Light, sans-serif-light sans-serif;
+	font-family: $thin-font;
 	overflow-x: hidden;
 	background: #fff;
 	-webkit-text-size-adjust: none;
@@ -186,6 +189,10 @@ a {
 				margin: 15px 0;
 			}
 
+			h1, h2 {
+				font-family: $normal-font;
+			}
+
 			pre {
 				margin-bottom: 15px;
 				font-family: Helvetica-neue, Helvetica, sans-serif;
@@ -203,6 +210,10 @@ a {
 				p, pre {
 					margin-bottom: 10px;	
 				}	
+			}
+
+			strong, b {
+				font-family: $normal-font;
 			}
 
 			.third {
